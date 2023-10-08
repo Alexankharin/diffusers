@@ -60,6 +60,7 @@ except OptionalDependencyNotAvailable:
     _dummy_objects.update({"StableDiffusionImageVariationPipeline": StableDiffusionImageVariationPipeline})
 else:
     _import_structure["pipeline_stable_diffusion_image_variation"] = ["StableDiffusionImageVariationPipeline"]
+    _import_structure["pipeline_stable_diffusion_image_blending"]=["StableDiffusionImageBlendingPipeline"]
 try:
     if not (is_transformers_available() and is_torch_available() and is_transformers_version(">=", "4.26.0")):
         raise OptionalDependencyNotAvailable()
