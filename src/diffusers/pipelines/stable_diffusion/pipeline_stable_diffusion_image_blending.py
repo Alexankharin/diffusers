@@ -20,6 +20,8 @@ import torch
 from packaging import version
 from torchvision.transforms.functional import pil_to_tensor
 from transformers import CLIPImageProcessor, CLIPVisionModelWithProjection
+from transformers import CLIPTextModel, CLIPTokenizer
+
 
 from ...configuration_utils import FrozenDict
 from ...image_processor import VaeImageProcessor
@@ -73,6 +75,8 @@ class StableDiffusionImageBlendingPipeline(DiffusionPipeline):
         self,
         vae: AutoencoderKL,
         image_encoder: CLIPVisionModelWithProjection,
+        #text_encoder: CLIPTextModel,
+        #tokenizer: CLIPTokenizer,
         unet: UNet2DConditionModel,
         scheduler: KarrasDiffusionSchedulers,
         safety_checker: StableDiffusionSafetyChecker,
