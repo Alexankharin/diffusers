@@ -531,14 +531,12 @@ def main():
     # download the dataset.
     if args.dataset_name is not None:
         # Downloading and loading a dataset from the hub.
-        from datasets import load_from_disk
-        dataset=load_from_disk(args.dataset_name)
-        '''dataset = load_dataset(
+        dataset = load_dataset(
             args.dataset_name,
             args.dataset_config_name,
             cache_dir=args.cache_dir,
             data_dir=args.train_data_dir,
-        )'''
+        )
     else:
         data_files = {}
         if args.train_data_dir is not None:
