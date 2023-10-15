@@ -56,8 +56,12 @@ try:
         raise OptionalDependencyNotAvailable()
 except OptionalDependencyNotAvailable:
     from ...utils.dummy_torch_and_transformers_objects import StableDiffusionImageVariationPipeline
+    from ...utils.dummy_torch_and_transformers_objects import StableDiffusionImageBlendingPipeline
+
 
     _dummy_objects.update({"StableDiffusionImageVariationPipeline": StableDiffusionImageVariationPipeline})
+    _dummy_objects.update({"StableDiffusionImageBlendingPipeline": StableDiffusionImageBlendingPipeline})
+
 else:
     _import_structure["pipeline_stable_diffusion_image_variation"] = ["StableDiffusionImageVariationPipeline"]
     _import_structure["pipeline_stable_diffusion_image_blending"]=["StableDiffusionImageBlendingPipeline"]
@@ -163,7 +167,7 @@ if TYPE_CHECKING or DIFFUSERS_SLOW_IMPORT:
     except OptionalDependencyNotAvailable:
         from ...utils.dummy_torch_and_transformers_objects import StableDiffusionImageVariationPipeline
     else:
-        from .pipeline_stable_diffusion_image_variation import StableDiffusionImageVariationPipeline
+        from .pipeline_stable_diffusion_image_blending import StableDiffusionImageBlendingPipeline
 
     try:
         if not (is_transformers_available() and is_torch_available() and is_transformers_version(">=", "4.26.0")):

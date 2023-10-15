@@ -355,12 +355,12 @@ class StableDiffusionImageBlendingPipeline(DiffusionPipeline):
         #3.a Blend images
         if self.blender==None:
             image_embeddings=image_embeddings1/2+image_embeddings2/2
-            image_embeddings=torch.cat([torch.zeros_like(image_embeddings),image_embeddings],0)
+            #image_embeddings=torch.cat([torch.zeros_like(image_embeddings),image_embeddings],0)
         else:
             image_embeddings=self.blender(image_embeddings1[-1:,0,:],image_embeddings2[-1:,0,:]).unsqueeze(1)
             image_embeddings=torch.cat([torch.zeros_like(image_embeddings),image_embeddings],0)
-        image_embeddings1=torch.cat([torch.zeros_like(image_embeddings),image_embeddings1],0)
-        image_embeddings2=torch.cat([torch.zeros_like(image_embeddings),image_embeddings2],0)
+        #image_embeddings1=torch.cat([torch.zeros_like(image_embeddings),image_embeddings1],0)
+        #image_embeddings2=torch.cat([torch.zeros_like(image_embeddings),image_embeddings2],0)
         #image_embeddings=image_embeddings1
         # 4. Prepare timesteps
         self.scheduler.set_timesteps(num_inference_steps, device=device)
